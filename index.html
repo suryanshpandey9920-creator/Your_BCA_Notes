@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,6 +102,11 @@
   .subject-header h2{font-size:34px;font-weight:500;margin-bottom:10px}
   .subject-header .code-badge{display:inline-block;padding:4px 12px;border-radius:6px;font-size:12px;font-weight:700;background:var(--text);color:#fff;margin-bottom:10px;letter-spacing:0.04em}
   .subject-header p{color:var(--muted);font-size:15px}
+
+  .notice-banner{padding:14px 20px;border-radius:12px;background:linear-gradient(135deg,#fef3c7 0%,#ffedd5 100%);border:1px solid #fde68a;margin-bottom:24px;display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#78350f;line-height:1.6}
+  .notice-banner .notice-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+  .notice-banner b{color:#92400e}
+
   .module-list{display:flex;flex-direction:column;gap:14px}
   .module{padding:22px 24px;border-radius:14px;background:var(--surface);border:1px solid var(--border);transition:all .2s}
   .module:hover{border-color:var(--primary-light);box-shadow:var(--shadow-sm)}
@@ -120,6 +124,8 @@
   .link-btn.rm:hover{background:#99f6e4}
   .link-btn.gfg{color:#166534;border-color:#bbf7d0;background:var(--gfg-soft)}
   .link-btn.gfg:hover{background:#86efac;border-color:var(--gfg)}
+  .link-btn.na{color:var(--muted);background:var(--bg-2);border-color:var(--border);cursor:not-allowed;opacity:0.75}
+  .link-btn.na:hover{transform:none;box-shadow:none}
 
   .syllabus-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
   .sem-card{padding:26px;border-radius:16px;background:var(--surface);border:1px solid var(--border);transition:all .2s}
@@ -283,7 +289,7 @@
         <li><span class="check">✓</span> Complete BCA syllabus aligned across all semesters</li>
         <li><span class="check">✓</span> Semester → Subject → Module → Topic structure</li>
         <li><span class="check">✓</span> YouTube video links for every module</li>
-        <li><span class="check">✓</span> GeeksforGeeks articles for every module</li>
+        <li><span class="check">✓</span> GeeksforGeeks articles for most modules</li>
         <li><span class="check">✓</span> Roadmap.sh links for career guidance</li>
         <li><span class="check">✓</span> No login, no ads, no paywalls</li>
       </ul>
@@ -396,16 +402,16 @@ const syllabusData = {
   ]
 };
 
-/* ============ COMPLETE NOTES DATA WITH GFG LINKS ============ */
+/* ============ COMPLETE NOTES DATA WITH GFG LINKS (null where not available) ============ */
 const notesData = {
   1:[
     {name:"Universal Human Values-I",icon:"🕉️",code:"VAC-BCA 101",modules:[
-      {title:"Introduction to Value Education",topics:["Understanding Value Education","Self-Exploration Process","Continuous Happiness & Prosperity","Right Understanding","Relationship & Physical Facility"],yt:"https://youtube.com/results?search_query=universal+human+values+introduction",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/human-values-professional-ethics/"},
-      {title:"Harmony in the Human Being",topics:["Self & Body Co-existence","Needs of Self vs Body","Body as Instrument of Self","Harmony in the Self","Self-Regulation & Health"],yt:"https://youtube.com/results?search_query=harmony+in+human+being+UHV",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/human-values-professional-ethics/"},
-      {title:"Harmony in the Family & Society",topics:["Family as Basic Unit","Values in Human Relationships","Trust as Foundational Value","Respect as Right Evaluation","Universal Human Order"],yt:"https://youtube.com/results?search_query=harmony+in+family+and+society+UHV",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/human-values-professional-ethics/"},
-      {title:"Harmony in Nature/Existence",topics:["Harmony in Nature","Interconnectedness","Four Orders of Nature","Co-existence at All Levels","Holistic Perception"],yt:"https://youtube.com/results?search_query=harmony+in+nature+existence+UHV",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/human-values-professional-ethics/"},
-      {title:"Implications of Holistic Understanding",topics:["Natural Acceptance of Values","Ethical Human Conduct","Humanistic Education","Humanistic Constitution","Universal Human Order"],yt:"https://youtube.com/results?search_query=holistic+understanding+human+values",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/human-values-professional-ethics/"},
-      {title:"Professional Ethics",topics:["Competence in Professional Ethics","Holistic Technologies","Production Systems","Case Studies","Value-Based Life & Profession"],yt:"https://youtube.com/results?search_query=professional+ethics+human+values",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/human-values-professional-ethics/"}
+      {title:"Introduction to Value Education",topics:["Understanding Value Education","Self-Exploration Process","Continuous Happiness & Prosperity","Right Understanding","Relationship & Physical Facility"],yt:"https://youtube.com/results?search_query=universal+human+values+introduction",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Harmony in the Human Being",topics:["Self & Body Co-existence","Needs of Self vs Body","Body as Instrument of Self","Harmony in the Self","Self-Regulation & Health"],yt:"https://youtube.com/results?search_query=harmony+in+human+being+UHV",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Harmony in the Family & Society",topics:["Family as Basic Unit","Values in Human Relationships","Trust as Foundational Value","Respect as Right Evaluation","Universal Human Order"],yt:"https://youtube.com/results?search_query=harmony+in+family+and+society+UHV",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Harmony in Nature/Existence",topics:["Harmony in Nature","Interconnectedness","Four Orders of Nature","Co-existence at All Levels","Holistic Perception"],yt:"https://youtube.com/results?search_query=harmony+in+nature+existence+UHV",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Implications of Holistic Understanding",topics:["Natural Acceptance of Values","Ethical Human Conduct","Humanistic Education","Humanistic Constitution","Universal Human Order"],yt:"https://youtube.com/results?search_query=holistic+understanding+human+values",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Professional Ethics",topics:["Competence in Professional Ethics","Holistic Technologies","Production Systems","Case Studies","Value-Based Life & Profession"],yt:"https://youtube.com/results?search_query=professional+ethics+human+values",rm:"https://roadmap.sh/soft-skills",gfg:null}
     ]},
     {name:"Mathematical Foundation-I",icon:"📐",code:"CC-BCA 101",modules:[
       {title:"Set Theory",topics:["Fundamentals of Set Theory","Set Operations & Laws","Venn Diagrams","Cartesian Products","Functions: One-to-One, Onto","Mathematical Induction"],yt:"https://youtube.com/results?search_query=set+theory+discrete+mathematics",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/set-theory/"},
@@ -440,12 +446,12 @@ const notesData = {
       {title:"Current Trends in DBMS",topics:["Centralized & Client-Server","Distributed Databases","Object-Oriented DB","Semi-Structured & NoSQL","Data Mining & Warehousing","Mobile & Web Databases"],yt:"https://youtube.com/results?search_query=advanced+database+systems+trends",rm:"https://roadmap.sh/sql",gfg:"https://www.geeksforgeeks.org/nosql-database/"}
     ]},
     {name:"Attitude & Aptitude Development-I",icon:"💬",code:"AP-BCA 101",modules:[
-      {title:"Introduction to Personality Development",topics:["Concept of Personality","Significance of Personality Development","Freud & Erickson Theories","SWOT Analysis"],yt:"https://youtube.com/results?search_query=personality+development+introduction",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/personality-development/"},
-      {title:"Attitude & Motivation",topics:["Concept of Attitudes","Factors Affecting Attitude","Developing Positive Attitude","Motivation Concepts","Internal & External Motives","Self-Motivation"],yt:"https://youtube.com/results?search_query=attitude+and+motivation+skills",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/personality-development/"},
-      {title:"Self-Esteem",topics:["Symptoms of Self-Esteem","Dos & Don'ts","High vs Low Self-Esteem","Building Confidence"],yt:"https://youtube.com/results?search_query=self+esteem+building+confidence",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/personality-development/"},
-      {title:"Quantitative Aptitude-I",topics:["Number System & Ages","Averages, Ratios, Proportions","Percentages","Mixtures & Allegations"],yt:"https://youtube.com/results?search_query=quantitative+aptitude+number+system",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/aptitude-questions-and-answers/"},
-      {title:"Logical Reasoning-I",topics:["Directions & Blood Relations","Coding & Decoding","Letter & Number Series","Analogies & Cubes","Venn Diagrams"],yt:"https://youtube.com/results?search_query=logical+reasoning+aptitude",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/reasoning-questions/"},
-      {title:"Verbal Reasoning-I",topics:["Para Jumbles","Reading Comprehension","Vocabulary, Synonyms, Antonyms","Grammar: Nouns, Articles, Pronouns"],yt:"https://youtube.com/results?search_query=verbal+reasoning+english+aptitude",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/verbal-reasoning/"}
+      {title:"Introduction to Personality Development",topics:["Concept of Personality","Significance of Personality Development","Freud & Erickson Theories","SWOT Analysis"],yt:"https://youtube.com/results?search_query=personality+development+introduction",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Attitude & Motivation",topics:["Concept of Attitudes","Factors Affecting Attitude","Developing Positive Attitude","Motivation Concepts","Internal & External Motives","Self-Motivation"],yt:"https://youtube.com/results?search_query=attitude+and+motivation+skills",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Self-Esteem",topics:["Symptoms of Self-Esteem","Dos & Don'ts","High vs Low Self-Esteem","Building Confidence"],yt:"https://youtube.com/results?search_query=self+esteem+building+confidence",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Quantitative Aptitude-I",topics:["Number System & Ages","Averages, Ratios, Proportions","Percentages","Mixtures & Allegations"],yt:"https://youtube.com/results?search_query=quantitative+aptitude+number+system",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Logical Reasoning-I",topics:["Directions & Blood Relations","Coding & Decoding","Letter & Number Series","Analogies & Cubes","Venn Diagrams"],yt:"https://youtube.com/results?search_query=logical+reasoning+aptitude",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Verbal Reasoning-I",topics:["Para Jumbles","Reading Comprehension","Vocabulary, Synonyms, Antonyms","Grammar: Nouns, Articles, Pronouns"],yt:"https://youtube.com/results?search_query=verbal+reasoning+english+aptitude",rm:"https://roadmap.sh/soft-skills",gfg:null}
     ]},
     {name:"Professional Skills-I: Web Programming (HTML & CSS)",icon:"🌐",code:"SEC-BCA PS103",modules:[
       {title:"Web Design Principles",topics:["Basic Principles of Web Development","Planning Process","Five Golden Rules","Navigation Bar Design","Home Page Layout"],yt:"https://youtube.com/results?search_query=web+design+principles+beginner",rm:"https://roadmap.sh/frontend",gfg:"https://www.geeksforgeeks.org/web-design/"},
@@ -498,12 +504,12 @@ const notesData = {
       {title:"Internet Basics",topics:["Internet Growth & Architecture","ISP","IP Address, DNS, URL","WWW, Web Servers, Browsers","HTTPS","Cloud Services Basics","Intranet & Extranet"],yt:"https://youtube.com/results?search_query=internet+basics+dns+www",rm:"https://roadmap.sh/computer-network",gfg:"https://www.geeksforgeeks.org/internet-basics/"}
     ]},
     {name:"Environmental Studies",icon:"🌿",code:"VAC-BCA 201",modules:[
-      {title:"Multidisciplinary Nature of Environmental Studies",topics:["Definition, Scope & Importance","Public Awareness","Population Growth","Family Welfare","Role of IT, AI & Big Data"],yt:"https://youtube.com/results?search_query=environmental+studies+introduction",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/environmental-studies/"},
-      {title:"Natural Resources",topics:["Renewable & Non-Renewable","Forest, Water, Mineral Resources","Food & Energy Resources","Individual Role in Conservation","Sustainable Lifestyles"],yt:"https://youtube.com/results?search_query=natural+resources+conservation",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/natural-resources/"},
-      {title:"Ecosystems",topics:["Concepts of Ecosystem","Forest, Grassland, Desert Ecosystems","Aquatic Ecosystems","Case Studies in India"],yt:"https://youtube.com/results?search_query=ecosystems+types+structure+function",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/ecosystem/"},
-      {title:"Biodiversity & Conservation",topics:["Types of Biodiversity","Biogeographic Zones of India","Threats to Biodiversity","Endangered Species","In-situ & Ex-situ Conservation"],yt:"https://youtube.com/results?search_query=biodiversity+conservation+india",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/biodiversity/"},
-      {title:"Environmental Pollution",topics:["Air, Water, Soil Pollution","Solid Waste Management","Urban & Industrial Wastes","Disaster Management","Carbon Credits"],yt:"https://youtube.com/results?search_query=environmental+pollution+types+control",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/environmental-pollution/"},
-      {title:"Social Issues & Sustainable Development",topics:["Urban Energy Problems","Water Conservation","Rain Water Harvesting","Climate Change & Global Warming","Environment Protection Act"],yt:"https://youtube.com/results?search_query=sustainable+development+environment",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/sustainable-development/"}
+      {title:"Multidisciplinary Nature of Environmental Studies",topics:["Definition, Scope & Importance","Public Awareness","Population Growth","Family Welfare","Role of IT, AI & Big Data"],yt:"https://youtube.com/results?search_query=environmental+studies+introduction",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Natural Resources",topics:["Renewable & Non-Renewable","Forest, Water, Mineral Resources","Food & Energy Resources","Individual Role in Conservation","Sustainable Lifestyles"],yt:"https://youtube.com/results?search_query=natural+resources+conservation",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Ecosystems",topics:["Concepts of Ecosystem","Forest, Grassland, Desert Ecosystems","Aquatic Ecosystems","Case Studies in India"],yt:"https://youtube.com/results?search_query=ecosystems+types+structure+function",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Biodiversity & Conservation",topics:["Types of Biodiversity","Biogeographic Zones of India","Threats to Biodiversity","Endangered Species","In-situ & Ex-situ Conservation"],yt:"https://youtube.com/results?search_query=biodiversity+conservation+india",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Environmental Pollution",topics:["Air, Water, Soil Pollution","Solid Waste Management","Urban & Industrial Wastes","Disaster Management","Carbon Credits"],yt:"https://youtube.com/results?search_query=environmental+pollution+types+control",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Social Issues & Sustainable Development",topics:["Urban Energy Problems","Water Conservation","Rain Water Harvesting","Climate Change & Global Warming","Environment Protection Act"],yt:"https://youtube.com/results?search_query=sustainable+development+environment",rm:"https://roadmap.sh/computer-science",gfg:null}
     ]},
     {name:"Professional Skills-II: Linux Administration",icon:"🐧",code:"SEC-BCA PS402",modules:[
       {title:"Introduction to Linux & Open Source",topics:["History & Evolution of Linux","Open-Source Philosophy","Linux Distributions","Linux Architecture","File System Hierarchy","Installation"],yt:"https://youtube.com/results?search_query=linux+introduction+installation",rm:"https://roadmap.sh/linux",gfg:"https://www.geeksforgeeks.org/linux-tutorial/"},
@@ -522,22 +528,22 @@ const notesData = {
       {title:"File System, Express & Database",topics:["File Operations","Debugging","Express.js Basics","MongoDB/MySQL CRUD"],yt:"https://youtube.com/results?search_query=express+mongodb+crud",rm:"https://roadmap.sh/backend",gfg:"https://www.geeksforgeeks.org/express-js/"}
     ]},
     {name:"Activity Based Learning",icon:"🎭",code:"VAC-BCA ABL202",modules:[
-      {title:"Personality Development & Team Building",topics:["Word Association Test","Thematic Apperception Test","Team Concepts","Goal Setting","Role Clarification"],yt:"https://youtube.com/results?search_query=personality+development+team+building",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/personality-development/"},
-      {title:"Case Study & Story Writing",topics:["Case Study Structure","Problem Identification","Technology Vision 2035","Domain-Wise Distribution","Presentation of Findings"],yt:"https://youtube.com/results?search_query=case+study+writing+techniques",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/case-study/"},
-      {title:"Brainstorming",topics:["Introduction to Brainstorming","Types of Brainstorming","Academic & Parliamentary Topics","Team Discussions","Evaluation"],yt:"https://youtube.com/results?search_query=brainstorming+techniques+students",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/brainstorming-techniques/"},
-      {title:"Survey Designing",topics:["Research Methodology","Online & Paper Surveys","Questionnaire Design","Data Collection & Analysis","Graphs & Results"],yt:"https://youtube.com/results?search_query=survey+design+research+methodology",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/survey-research-methodology/"},
-      {title:"Drama / Skit",topics:["Self-Management Objectives","Collaborative Objectives","Verbal & Nonverbal Expression","Voice Projection","Social Awareness"],yt:"https://youtube.com/results?search_query=drama+skit+social+awareness",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/soft-skills/"},
-      {title:"Presentation & Report",topics:["Combining All Modules","Report Writing Format","Presentation Skills","Evaluation"],yt:"https://youtube.com/results?search_query=presentation+skills+report+writing",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/presentation-skills/"}
+      {title:"Personality Development & Team Building",topics:["Word Association Test","Thematic Apperception Test","Team Concepts","Goal Setting","Role Clarification"],yt:"https://youtube.com/results?search_query=personality+development+team+building",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Case Study & Story Writing",topics:["Case Study Structure","Problem Identification","Technology Vision 2035","Domain-Wise Distribution","Presentation of Findings"],yt:"https://youtube.com/results?search_query=case+study+writing+techniques",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Brainstorming",topics:["Introduction to Brainstorming","Types of Brainstorming","Academic & Parliamentary Topics","Team Discussions","Evaluation"],yt:"https://youtube.com/results?search_query=brainstorming+techniques+students",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Survey Designing",topics:["Research Methodology","Online & Paper Surveys","Questionnaire Design","Data Collection & Analysis","Graphs & Results"],yt:"https://youtube.com/results?search_query=survey+design+research+methodology",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Drama / Skit",topics:["Self-Management Objectives","Collaborative Objectives","Verbal & Nonverbal Expression","Voice Projection","Social Awareness"],yt:"https://youtube.com/results?search_query=drama+skit+social+awareness",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Presentation & Report",topics:["Combining All Modules","Report Writing Format","Presentation Skills","Evaluation"],yt:"https://youtube.com/results?search_query=presentation+skills+report+writing",rm:"https://roadmap.sh/soft-skills",gfg:null}
     ]}
   ],
   3:[
     {name:"Professional Communication",icon:"🗣️",code:"AEC-BCA 301",modules:[
-      {title:"Fundamentals of Communication",topics:["Definition & Nature","Process & Elements","Verbal, Non-verbal, Written","Barriers & Strategies","7 Cs of Communication","Digital Communication & Netiquette"],yt:"https://youtube.com/results?search_query=fundamentals+of+communication+skills",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/communication-skills/"},
-      {title:"Listening & Speaking Skills",topics:["Active vs Passive Listening","Barriers to Listening","Public Speaking","Group Discussions","Interview Skills","Virtual Interviews"],yt:"https://youtube.com/results?search_query=listening+speaking+skills+communication",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/listening-skills/"},
-      {title:"Reading & Comprehension",topics:["Skimming & Scanning","Intensive Comprehension","Vocabulary Building","Note-Taking & Summarizing","Critical Reading","AI-Assisted Research"],yt:"https://youtube.com/results?search_query=reading+comprehension+skills",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/reading-comprehension/"},
-      {title:"Business & Technical Writing",topics:["Email & Letter Writing","Resume & Cover Letter","Memo, Notice, Agenda","Technical Documentation","Report Writing","LinkedIn Profile"],yt:"https://youtube.com/results?search_query=business+technical+writing+skills",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/business-communication/"},
-      {title:"Non-Verbal Communication & Presentation",topics:["Body Language & Gestures","Eye Contact & Facial Expressions","Designing Presentations","Visual Aids & PPTs","Voice Modulation","Handling Q&A"],yt:"https://youtube.com/results?search_query=nonverbal+communication+presentation+skills",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/non-verbal-communication/"},
-      {title:"Soft Skills & Professional Etiquette",topics:["Time Management & Teamwork","Leadership & Conflict Resolution","Email & Telephone Etiquette","Workplace Ethics","Personal Grooming","Emotional Intelligence"],yt:"https://youtube.com/results?search_query=soft+skills+professional+etiquette",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/professional-etiquette/"}
+      {title:"Fundamentals of Communication",topics:["Definition & Nature","Process & Elements","Verbal, Non-verbal, Written","Barriers & Strategies","7 Cs of Communication","Digital Communication & Netiquette"],yt:"https://youtube.com/results?search_query=fundamentals+of+communication+skills",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Listening & Speaking Skills",topics:["Active vs Passive Listening","Barriers to Listening","Public Speaking","Group Discussions","Interview Skills","Virtual Interviews"],yt:"https://youtube.com/results?search_query=listening+speaking+skills+communication",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Reading & Comprehension",topics:["Skimming & Scanning","Intensive Comprehension","Vocabulary Building","Note-Taking & Summarizing","Critical Reading","AI-Assisted Research"],yt:"https://youtube.com/results?search_query=reading+comprehension+skills",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Business & Technical Writing",topics:["Email & Letter Writing","Resume & Cover Letter","Memo, Notice, Agenda","Technical Documentation","Report Writing","LinkedIn Profile"],yt:"https://youtube.com/results?search_query=business+technical+writing+skills",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Non-Verbal Communication & Presentation",topics:["Body Language & Gestures","Eye Contact & Facial Expressions","Designing Presentations","Visual Aids & PPTs","Voice Modulation","Handling Q&A"],yt:"https://youtube.com/results?search_query=nonverbal+communication+presentation+skills",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Soft Skills & Professional Etiquette",topics:["Time Management & Teamwork","Leadership & Conflict Resolution","Email & Telephone Etiquette","Workplace Ethics","Personal Grooming","Emotional Intelligence"],yt:"https://youtube.com/results?search_query=soft+skills+professional+etiquette",rm:"https://roadmap.sh/soft-skills",gfg:null}
     ]},
     {name:"Java Programming",icon:"☕",code:"SEC-BCA 301",modules:[
       {title:"Introduction to Java",topics:["History & Features","JDK, JRE, JVM","Setting Up Environment","Data Types & Variables","Operators","Control Statements & Loops","Scanner Class"],yt:"https://youtube.com/results?search_query=java+programming+for+beginners",rm:"https://roadmap.sh/java",gfg:"https://www.geeksforgeeks.org/java/"},
@@ -564,12 +570,12 @@ const notesData = {
       {title:"Multi-Core Processors & NoC",topics:["Tiled Chip Multi-Core","Network on Chips","Routing Algorithms","NoC Router Architecture","GPU-Based Systems"],yt:"https://youtube.com/results?search_query=multicore+processors+network+on+chip",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/multicore-processor/"}
     ]},
     {name:"Indian Knowledge System",icon:"🕉️",code:"MDE-BCA 201",modules:[
-      {title:"Indian Knowledge System",topics:["Indian Education","Preservation of Culture","Purpose of Knowledge","Indian Architecture","Sthapatya-Veda"],yt:"https://youtube.com/results?search_query=indian+knowledge+system+introduction",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/indian-knowledge-system/"},
-      {title:"Vedangas & Indian Health Sciences",topics:["Six Vedangas","Siksha, Vyakarana, Chandas","Ayurveda & Yoga","Holistic Health"],yt:"https://youtube.com/results?search_query=vedangas+ayurveda+yoga",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/vedangas/"},
-      {title:"Indian Languages, Sciences & Mathematics",topics:["Sanskrit Word Formation","Panini's Vyakarana","Place Value System","Sulva Sutras","Jain Texts"],yt:"https://youtube.com/results?search_query=indian+mathematics+history",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/history-of-indian-mathematics/"},
-      {title:"Bharatavarsha",topics:["Concept of Bharatavarsha","Ramayana & Mahabharata","Buddhist Texts","Tripitakas","Sangham Literature"],yt:"https://youtube.com/results?search_query=bharatavarsha+ancient+india",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/ancient-indian-history/"},
-      {title:"Women in Indian Society",topics:["Role in Hindu Civilization","Vedic Gleanings","Women in Epics","Prominent Indian Women"],yt:"https://youtube.com/results?search_query=women+in+indian+society+history",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/women-in-indian-history/"},
-      {title:"Modern India",topics:["National Freedom Movement","Social Reformers","Present-Day Challenges","Bharatavarsha Today"],yt:"https://youtube.com/results?search_query=modern+india+freedom+movement",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/modern-indian-history/"}
+      {title:"Indian Knowledge System",topics:["Indian Education","Preservation of Culture","Purpose of Knowledge","Indian Architecture","Sthapatya-Veda"],yt:"https://youtube.com/results?search_query=indian+knowledge+system+introduction",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Vedangas & Indian Health Sciences",topics:["Six Vedangas","Siksha, Vyakarana, Chandas","Ayurveda & Yoga","Holistic Health"],yt:"https://youtube.com/results?search_query=vedangas+ayurveda+yoga",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Indian Languages, Sciences & Mathematics",topics:["Sanskrit Word Formation","Panini's Vyakarana","Place Value System","Sulva Sutras","Jain Texts"],yt:"https://youtube.com/results?search_query=indian+mathematics+history",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Bharatavarsha",topics:["Concept of Bharatavarsha","Ramayana & Mahabharata","Buddhist Texts","Tripitakas","Sangham Literature"],yt:"https://youtube.com/results?search_query=bharatavarsha+ancient+india",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Women in Indian Society",topics:["Role in Hindu Civilization","Vedic Gleanings","Women in Epics","Prominent Indian Women"],yt:"https://youtube.com/results?search_query=women+in+indian+society+history",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Modern India",topics:["National Freedom Movement","Social Reformers","Present-Day Challenges","Bharatavarsha Today"],yt:"https://youtube.com/results?search_query=modern+india+freedom+movement",rm:"https://roadmap.sh/computer-science",gfg:null}
     ]},
     {name:"Advanced JavaScript & Frameworks",icon:"🚀",code:"DSE-BCA 3011",modules:[
       {title:"Advanced JavaScript Concepts",topics:["Execution Context & Call Stack","Scope, Closures, Hoisting","this Keyword & Binding","Higher-Order Functions","Promises, Async/Await","ES6 Modules"],yt:"https://youtube.com/results?search_query=advanced+javascript+closures+async",rm:"https://roadmap.sh/javascript",gfg:"https://www.geeksforgeeks.org/javascript-closures/"},
@@ -612,22 +618,22 @@ const notesData = {
       {title:"CRUD & Mini Project",topics:["Employee CRUD App","User Registration Portal","Database Validation","Error Handling"],yt:"https://youtube.com/results?search_query=php+mysql+crud+mini+project",rm:"https://roadmap.sh/php",gfg:"https://www.geeksforgeeks.org/php-crud-application/"}
     ]},
     {name:"Project Based Learning (Mini Project)",icon:"🎯",code:"SEC-BCA PBL 305",modules:[
-      {title:"Inspiration: Explore",topics:["Strategic Priorities","Activity System","Stakeholder Mapping","Opportunity Framing"],yt:"https://youtube.com/results?search_query=design+thinking+inspiration+explore",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/design-thinking/"},
-      {title:"Research: Empathize & Ideate",topics:["Secondary Research","Observation & Interviews","Empathy Maps","Personas","Mind Maps","TRIZ Principles"],yt:"https://youtube.com/results?search_query=design+thinking+empathize+ideate",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/design-thinking-process/"},
-      {title:"Implementation: Evolve",topics:["Strategic Requirements","Activity System","Prototype Evolution"],yt:"https://youtube.com/results?search_query=design+thinking+implementation",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/prototyping/"},
-      {title:"7 Cs for Project Success",topics:["Communication","Commitment & Cash","Control & Cooperation","Culture & Coaching"],yt:"https://youtube.com/results?search_query=7+cs+project+management",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/project-management/"},
-      {title:"Project Planning",topics:["Project Charter","Risk Management","Human Resources","Schedule & Milestones","Budget Estimates","NOISE Estimation"],yt:"https://youtube.com/results?search_query=project+planning+management",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/project-planning/"},
-      {title:"Presentation & Report",topics:["Combining All Modules","Prototype Demo","Report Writing","Evaluation"],yt:"https://youtube.com/results?search_query=project+presentation+report+writing",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/project-report/"}
+      {title:"Inspiration: Explore",topics:["Strategic Priorities","Activity System","Stakeholder Mapping","Opportunity Framing"],yt:"https://youtube.com/results?search_query=design+thinking+inspiration+explore",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Research: Empathize & Ideate",topics:["Secondary Research","Observation & Interviews","Empathy Maps","Personas","Mind Maps","TRIZ Principles"],yt:"https://youtube.com/results?search_query=design+thinking+empathize+ideate",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Implementation: Evolve",topics:["Strategic Requirements","Activity System","Prototype Evolution"],yt:"https://youtube.com/results?search_query=design+thinking+implementation",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"7 Cs for Project Success",topics:["Communication","Commitment & Cash","Control & Cooperation","Culture & Coaching"],yt:"https://youtube.com/results?search_query=7+cs+project+management",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Project Planning",topics:["Project Charter","Risk Management","Human Resources","Schedule & Milestones","Budget Estimates","NOISE Estimation"],yt:"https://youtube.com/results?search_query=project+planning+management",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Presentation & Report",topics:["Combining All Modules","Prototype Demo","Report Writing","Evaluation"],yt:"https://youtube.com/results?search_query=project+presentation+report+writing",rm:"https://roadmap.sh/software-architect",gfg:null}
     ]}
   ],
   4:[
     {name:"Social & Emotional Learning",icon:"💚",code:"MDE-BCA 401",modules:[
-      {title:"Self-Awareness & Emotional Intelligence",topics:["Recognizing Feelings","Self-Reflection","Growth vs Fixed Mindset","Building Confidence","Personal Triggers"],yt:"https://youtube.com/results?search_query=self+awareness+emotional+intelligence",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/emotional-intelligence/"},
-      {title:"Self-Management",topics:["Managing Anger & Stress","Impulse Control","Positive Self-Talk","Goal-Setting","Time Management"],yt:"https://youtube.com/results?search_query=self+management+emotional+regulation",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/self-management-skills/"},
-      {title:"Social Awareness",topics:["Empathy & Compassion","Respecting Differences","Reading Nonverbal Cues","Active Listening","Community Engagement"],yt:"https://youtube.com/results?search_query=social+awareness+empathy",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/social-awareness/"},
-      {title:"Relationship Skills",topics:["Effective Communication","Building Trust","Conflict Resolution","Healthy Relationships","Teamwork"],yt:"https://youtube.com/results?search_query=relationship+skills+communication",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/relationship-skills/"},
-      {title:"Responsible Decision-Making",topics:["Decision-Making Steps","Evaluating Consequences","Peer Pressure","Ethical Dilemmas","Problem-Solving"],yt:"https://youtube.com/results?search_query=responsible+decision+making",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/decision-making-skills/"},
-      {title:"Building Emotional Resilience",topics:["Coping Strategies","Overcoming Setbacks","Mindfulness & Gratitude","Personal Resilience Plan"],yt:"https://youtube.com/results?search_query=emotional+resilience+mindfulness",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/emotional-resilience/"}
+      {title:"Self-Awareness & Emotional Intelligence",topics:["Recognizing Feelings","Self-Reflection","Growth vs Fixed Mindset","Building Confidence","Personal Triggers"],yt:"https://youtube.com/results?search_query=self+awareness+emotional+intelligence",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Self-Management",topics:["Managing Anger & Stress","Impulse Control","Positive Self-Talk","Goal-Setting","Time Management"],yt:"https://youtube.com/results?search_query=self+management+emotional+regulation",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Social Awareness",topics:["Empathy & Compassion","Respecting Differences","Reading Nonverbal Cues","Active Listening","Community Engagement"],yt:"https://youtube.com/results?search_query=social+awareness+empathy",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Relationship Skills",topics:["Effective Communication","Building Trust","Conflict Resolution","Healthy Relationships","Teamwork"],yt:"https://youtube.com/results?search_query=relationship+skills+communication",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Responsible Decision-Making",topics:["Decision-Making Steps","Evaluating Consequences","Peer Pressure","Ethical Dilemmas","Problem-Solving"],yt:"https://youtube.com/results?search_query=responsible+decision+making",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Building Emotional Resilience",topics:["Coping Strategies","Overcoming Setbacks","Mindfulness & Gratitude","Personal Resilience Plan"],yt:"https://youtube.com/results?search_query=emotional+resilience+mindfulness",rm:"https://roadmap.sh/soft-skills",gfg:null}
     ]},
     {name:"Data Warehousing & Data Mining",icon:"📊",code:"CC-BCA 401",modules:[
       {title:"Data Warehouse & Dimensional Modelling",topics:["Data Warehouse Defined","3-Tier Architecture","Star, Snowflake Schema","Fact Constellation","Measures in Fact Tables"],yt:"https://youtube.com/results?search_query=data+warehouse+dimensional+modelling",rm:"https://roadmap.sh/ai-data-scientist",gfg:"https://www.geeksforgeeks.org/data-warehousing/"},
@@ -639,10 +645,10 @@ const notesData = {
     ]},
     {name:"Cloud Computing",icon:"☁️",code:"CC-BCA 402",modules:[
       {title:"Introduction to Cloud Computing",topics:["Distributed & Parallel Computing","Cloud Characteristics","Cloud Architecture","IaaS, PaaS, SaaS","Deployment Models","Advantages & Challenges"],yt:"https://youtube.com/results?search_query=cloud+computing+introduction",rm:"https://roadmap.sh/aws",gfg:"https://www.geeksforgeeks.org/cloud-computing/"},
-      {title:"Virtualization",topics:["Hypervisors Type 1 & 2","VMs & Containers","Resource Allocation","Load Balancing","VMware, VirtualBox, Docker"],yt:"https://youtube.com/results?search_query=virtualization+cloud+computing",rm:"https://roadmap.sh/aws",gfg:"https://www.geeksforgeeks.org/virtualization-in-cloud-computing/"},
+      {title:"Virtualization",topics:["Hypervisors Type 1 & 2","VMs & Containers","Resource Allocation","Load Balancing","VMware, VirtualBox, Docker"],yt:"https://youtube.com/results?search_query=virtualization+cloud+computing",rm:"https://roadmap.sh/aws",gfg:null},
       {title:"Cloud Service Models & Serverless",topics:["IaaS: AWS EC2, Azure VM","PaaS: Azure App Services","SaaS: Google Workspace","Serverless Computing"],yt:"https://youtube.com/results?search_query=cloud+service+models+serverless",rm:"https://roadmap.sh/aws",gfg:"https://www.geeksforgeeks.org/serverless-computing/"},
-      {title:"Specialized Cloud Mechanisms",topics:["Automated Scaling","Load Balancer","SLA Monitor","Pay-per-use","Failover System","State Management"],yt:"https://youtube.com/results?search_query=cloud+computing+mechanisms+scaling",rm:"https://roadmap.sh/aws",gfg:"https://www.geeksforgeeks.org/auto-scaling-in-cloud/"},
-      {title:"Security in Cloud",topics:["Data Privacy","PKI","Identity & Access Management","Virtualization Security","ISO 27001, GDPR, HIPAA"],yt:"https://youtube.com/results?search_query=cloud+security+pki+iam",rm:"https://roadmap.sh/aws",gfg:"https://www.geeksforgeeks.org/cloud-security/"},
+      {title:"Specialized Cloud Mechanisms",topics:["Automated Scaling","Load Balancer","SLA Monitor","Pay-per-use","Failover System","State Management"],yt:"https://youtube.com/results?search_query=cloud+computing+mechanisms+scaling",rm:"https://roadmap.sh/aws",gfg:null},
+      {title:"Security in Cloud",topics:["Data Privacy","PKI","Identity & Access Management","Virtualization Security","ISO 27001, GDPR, HIPAA"],yt:"https://youtube.com/results?search_query=cloud+security+pki+iam",rm:"https://roadmap.sh/aws",gfg:null},
       {title:"Cloud Platforms & Technologies",topics:["AWS","Microsoft Azure","Google Cloud Platform","OpenStack","VMware"],yt:"https://youtube.com/results?search_query=aws+azure+gcp+cloud+platforms",rm:"https://roadmap.sh/aws",gfg:"https://www.geeksforgeeks.org/aws-tutorial/"}
     ]},
     {name:"Server Side Development & Database",icon:"🖥️",code:"DSE-BCA 4011",modules:[
@@ -670,20 +676,20 @@ const notesData = {
       {title:"Security Protocols & Events",topics:["Kerberos","SSL, TLS, IPSEC","PGP & S/MIME","Key Management"],yt:"https://youtube.com/results?search_query=ssl+tls+kerberos+pgp",rm:"https://roadmap.sh/cyber-security",gfg:"https://www.geeksforgeeks.org/ssl-tls-protocol/"}
     ]},
     {name:"English for Research Paper Writing",icon:"📄",code:"OE-BCA 4011",modules:[
-      {title:"Introduction to Research Writing",topics:["Importance of Research","Types of Research Papers","Selecting a Topic","Formulating Research Questions"],yt:"https://youtube.com/results?search_query=research+paper+writing+introduction",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/research-paper-writing/"},
-      {title:"Literature Review & Methodology",topics:["Conducting Literature Review","Qualitative & Quantitative Methods","Ethical Considerations"],yt:"https://youtube.com/results?search_query=literature+review+research+methodology",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/literature-review/"},
-      {title:"Structuring the Research Paper",topics:["Title, Abstract, Introduction","Methodology & Results","Discussion & Conclusion","References"],yt:"https://youtube.com/results?search_query=research+paper+structure+components",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/research-paper-structure/"},
-      {title:"Referencing & Academic Integrity",topics:["APA, MLA, IEEE Styles","Understanding Plagiarism","Zotero, EndNote Tools"],yt:"https://youtube.com/results?search_query=citation+styles+apa+mla+ieee",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/citation-styles/"},
-      {title:"Writing & Revising",topics:["Discussion & Conclusion","Revising for Clarity","Formatting","Final Checks"],yt:"https://youtube.com/results?search_query=research+paper+writing+revising",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/research-paper-writing/"},
-      {title:"Presentation Skills",topics:["Oral Presentations","Visual Aids","Handling Questions","Discussions"],yt:"https://youtube.com/results?search_query=research+presentation+skills",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/presentation-skills/"}
+      {title:"Introduction to Research Writing",topics:["Importance of Research","Types of Research Papers","Selecting a Topic","Formulating Research Questions"],yt:"https://youtube.com/results?search_query=research+paper+writing+introduction",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Literature Review & Methodology",topics:["Conducting Literature Review","Qualitative & Quantitative Methods","Ethical Considerations"],yt:"https://youtube.com/results?search_query=literature+review+research+methodology",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Structuring the Research Paper",topics:["Title, Abstract, Introduction","Methodology & Results","Discussion & Conclusion","References"],yt:"https://youtube.com/results?search_query=research+paper+structure+components",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Referencing & Academic Integrity",topics:["APA, MLA, IEEE Styles","Understanding Plagiarism","Zotero, EndNote Tools"],yt:"https://youtube.com/results?search_query=citation+styles+apa+mla+ieee",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Writing & Revising",topics:["Discussion & Conclusion","Revising for Clarity","Formatting","Final Checks"],yt:"https://youtube.com/results?search_query=research+paper+writing+revising",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Presentation Skills",topics:["Oral Presentations","Visual Aids","Handling Questions","Discussions"],yt:"https://youtube.com/results?search_query=research+presentation+skills",rm:"https://roadmap.sh/soft-skills",gfg:null}
     ]},
     {name:"Disaster Management",icon:"🚨",code:"OE-BCA 4012",modules:[
-      {title:"Introduction",topics:["Definition of Disaster","Global & Indian Scenario","Direct & Indirect Effects","Global Warming & Climate Change"],yt:"https://youtube.com/results?search_query=disaster+management+introduction",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/disaster-management/"},
-      {title:"Natural & Manmade Disasters",topics:["Flood, Earthquake, Cyclone","Landslides, Avalanches","Chemical, Industrial, Nuclear","Fire Hazards"],yt:"https://youtube.com/results?search_query=natural+manmade+disasters",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/types-of-disasters/"},
-      {title:"Disaster Management Policy",topics:["Disaster Risks in India","Policy & Administration","Rescue Operations","Flowchart of Process"],yt:"https://youtube.com/results?search_query=disaster+management+policy+india",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/disaster-management-policy/"},
-      {title:"Institutional Framework",topics:["Public Awareness","NIDM & NDMA","Emergency Facilities","GIS, Remote Sensing, GPS"],yt:"https://youtube.com/results?search_query=ndma+nidm+disaster+management",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/ndma-nidm/"},
-      {title:"Disaster Response & Recovery",topics:["Response Mechanism","Post-Disaster Recovery","Tools & Technologies"],yt:"https://youtube.com/results?search_query=disaster+response+recovery",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/disaster-response/"},
-      {title:"Disaster Planning & Preparedness",topics:["Disaster Management Cycle","Preparedness Strategies","Risk Assessment","Community-Based DM"],yt:"https://youtube.com/results?search_query=disaster+planning+preparedness",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/disaster-preparedness/"}
+      {title:"Introduction",topics:["Definition of Disaster","Global & Indian Scenario","Direct & Indirect Effects","Global Warming & Climate Change"],yt:"https://youtube.com/results?search_query=disaster+management+introduction",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Natural & Manmade Disasters",topics:["Flood, Earthquake, Cyclone","Landslides, Avalanches","Chemical, Industrial, Nuclear","Fire Hazards"],yt:"https://youtube.com/results?search_query=natural+manmade+disasters",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Disaster Management Policy",topics:["Disaster Risks in India","Policy & Administration","Rescue Operations","Flowchart of Process"],yt:"https://youtube.com/results?search_query=disaster+management+policy+india",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Institutional Framework",topics:["Public Awareness","NIDM & NDMA","Emergency Facilities","GIS, Remote Sensing, GPS"],yt:"https://youtube.com/results?search_query=ndma+nidm+disaster+management",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Disaster Response & Recovery",topics:["Response Mechanism","Post-Disaster Recovery","Tools & Technologies"],yt:"https://youtube.com/results?search_query=disaster+response+recovery",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Disaster Planning & Preparedness",topics:["Disaster Management Cycle","Preparedness Strategies","Risk Assessment","Community-Based DM"],yt:"https://youtube.com/results?search_query=disaster+planning+preparedness",rm:"https://roadmap.sh/computer-science",gfg:null}
     ]},
     {name:"Foreign Language (German-I)",icon:"🇩🇪",code:"OE-BCA 4013",modules:[
       {title:"Wichtige Sprachhandlungen I",topics:["Phonetics","Sich begrüßen & Vorstellen","Zahlen 1 bis 1 Milliarde","Regelmäßige Verben","sein & haben"],yt:"https://youtube.com/results?search_query=german+language+for+beginners",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/german-language/"},
@@ -702,20 +708,20 @@ const notesData = {
       {title:"Spiritual Wellness",topics:["Spiritual Intelligence","Gratitude & Forgiveness","Managing Ego","Meditation & Breathing","Global Philosophies"],yt:"https://youtube.com/results?search_query=spiritual+wellness+meditation",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/spiritual-wellness/"}
     ]},
     {name:"Constitution of India",icon:"⚖️",code:"OE-BCA 4015",modules:[
-      {title:"Introduction",topics:["Indian Constitution","Sources & History","Citizenship","Preamble","Fundamental Rights & Duties","DPSP"],yt:"https://youtube.com/results?search_query=constitution+of+india+introduction",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/constitution-of-india/"},
-      {title:"Union Government",topics:["Federalism","Centre-State Relationship","President, PM","Council of Ministers","Lok Sabha, Rajya Sabha"],yt:"https://youtube.com/results?search_query=union+government+india",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/union-government-india/"},
-      {title:"Citizenship",topics:["Citizenship at Commencement","Migration Rights","Overseas Indians","Foreign Citizenship","Parliament Regulation"],yt:"https://youtube.com/results?search_query=citizenship+act+india",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/citizenship-in-india/"},
-      {title:"Fundamental Rights",topics:["Right to Equality","Right to Freedom","Right against Exploitation","Freedom of Religion","Constitutional Remedies"],yt:"https://youtube.com/results?search_query=fundamental+rights+india",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/fundamental-rights/"},
-      {title:"The Union",topics:["Federal Structure","President's Powers","Vice-President","Emergency Powers","Pardoning Powers"],yt:"https://youtube.com/results?search_query=president+india+powers+functions",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/president-of-india/"},
-      {title:"Union Judiciary",topics:["Independence of Judiciary","Supreme Court","Appointment of Judges","Collegium System","Tenure & Removal"],yt:"https://youtube.com/results?search_query=supreme+court+india+judiciary",rm:"https://roadmap.sh/computer-science",gfg:"https://www.geeksforgeeks.org/supreme-court-of-india/"}
+      {title:"Introduction",topics:["Indian Constitution","Sources & History","Citizenship","Preamble","Fundamental Rights & Duties","DPSP"],yt:"https://youtube.com/results?search_query=constitution+of+india+introduction",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Union Government",topics:["Federalism","Centre-State Relationship","President, PM","Council of Ministers","Lok Sabha, Rajya Sabha"],yt:"https://youtube.com/results?search_query=union+government+india",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Citizenship",topics:["Citizenship at Commencement","Migration Rights","Overseas Indians","Foreign Citizenship","Parliament Regulation"],yt:"https://youtube.com/results?search_query=citizenship+act+india",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Fundamental Rights",topics:["Right to Equality","Right to Freedom","Right against Exploitation","Freedom of Religion","Constitutional Remedies"],yt:"https://youtube.com/results?search_query=fundamental+rights+india",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"The Union",topics:["Federal Structure","President's Powers","Vice-President","Emergency Powers","Pardoning Powers"],yt:"https://youtube.com/results?search_query=president+india+powers+functions",rm:"https://roadmap.sh/computer-science",gfg:null},
+      {title:"Union Judiciary",topics:["Independence of Judiciary","Supreme Court","Appointment of Judges","Collegium System","Tenure & Removal"],yt:"https://youtube.com/results?search_query=supreme+court+india+judiciary",rm:"https://roadmap.sh/computer-science",gfg:null}
     ]},
     {name:"Summer Internship-I",icon:"💼",code:"SEC-BCA 401",modules:[
-      {title:"Program Specific Internship",topics:["Training on Emerging Tech","Design & Develop Products","Apply Classroom Knowledge"],yt:"https://youtube.com/results?search_query=internship+project+development",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/internship/"},
-      {title:"Interdisciplinary Internship",topics:["Explore Other Disciplines","Multidisciplinary Approach","Cost-Effective Products"],yt:"https://youtube.com/results?search_query=interdisciplinary+projects",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/interdisciplinary-projects/"},
-      {title:"Industry Specific Internship",topics:["Industry Challenges","Industry Solutions","Startups & SMEs"],yt:"https://youtube.com/results?search_query=industry+internship+projects",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/industry-internship/"},
-      {title:"Interpersonal Internship",topics:["Leadership & Marketing","Corporate Ethics","Communication","Problem-Solving"],yt:"https://youtube.com/results?search_query=interpersonal+skills+internship",rm:"https://roadmap.sh/soft-skills",gfg:"https://www.geeksforgeeks.org/interpersonal-skills/"},
-      {title:"Social Internship",topics:["Real-Life Issues","Societal Problems","Engineering Solutions"],yt:"https://youtube.com/results?search_query=social+internship+projects",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/social-internship/"},
-      {title:"Academic Internship",topics:["Study Report","Business Proposal","IPR","Research Connection"],yt:"https://youtube.com/results?search_query=academic+internship+report",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/academic-internship/"}
+      {title:"Program Specific Internship",topics:["Training on Emerging Tech","Design & Develop Products","Apply Classroom Knowledge"],yt:"https://youtube.com/results?search_query=internship+project+development",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Interdisciplinary Internship",topics:["Explore Other Disciplines","Multidisciplinary Approach","Cost-Effective Products"],yt:"https://youtube.com/results?search_query=interdisciplinary+projects",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Industry Specific Internship",topics:["Industry Challenges","Industry Solutions","Startups & SMEs"],yt:"https://youtube.com/results?search_query=industry+internship+projects",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Interpersonal Internship",topics:["Leadership & Marketing","Corporate Ethics","Communication","Problem-Solving"],yt:"https://youtube.com/results?search_query=interpersonal+skills+internship",rm:"https://roadmap.sh/soft-skills",gfg:null},
+      {title:"Social Internship",topics:["Real-Life Issues","Societal Problems","Engineering Solutions"],yt:"https://youtube.com/results?search_query=social+internship+projects",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Academic Internship",topics:["Study Report","Business Proposal","IPR","Research Connection"],yt:"https://youtube.com/results?search_query=academic+internship+report",rm:"https://roadmap.sh/software-architect",gfg:null}
     ]},
     {name:"Web Content Management System",icon:"🌐",code:"SEC-BCA PS402",modules:[
       {title:"Installing WordPress",topics:["XAMPP / Live Server","Dashboard & Settings","Basic Configuration"],yt:"https://youtube.com/results?search_query=wordpress+installation+beginners",rm:"https://roadmap.sh/frontend",gfg:"https://www.geeksforgeeks.org/wordpress/"},
@@ -726,20 +732,20 @@ const notesData = {
       {title:"Plugins, SEO & Complete Site",topics:["Install Useful Plugins","Yoast SEO","Backup & Security","Build Complete Website"],yt:"https://youtube.com/results?search_query=wordpress+plugins+seo+complete+website",rm:"https://roadmap.sh/frontend",gfg:"https://www.geeksforgeeks.org/wordpress-plugins/"}
     ]},
     {name:"Industry Practice-IV: WCMS",icon:"💼",code:"SEC-BCA IP403",modules:[
-      {title:"Setup & Hosting",topics:["Localhost Installation","Free Hosting Server","FTP & Domain Setup"],yt:"https://youtube.com/results?search_query=wordpress+hosting+setup",rm:"https://roadmap.sh/frontend",gfg:"https://www.geeksforgeeks.org/wordpress-hosting/"},
-      {title:"Content Structure Design",topics:["Custom Post Types","SEO-Friendly Structure","UX Organization"],yt:"https://youtube.com/results?search_query=wordpress+content+structure+seo",rm:"https://roadmap.sh/frontend",gfg:"https://www.geeksforgeeks.org/wordpress-custom-post-types/"},
-      {title:"Theme Customization for Clients",topics:["Premium Themes","Child Themes","CSS Modifications","Branding"],yt:"https://youtube.com/results?search_query=wordpress+child+theme+css",rm:"https://roadmap.sh/frontend",gfg:"https://www.geeksforgeeks.org/wordpress-child-theme/"},
-      {title:"Page Builders & UI Design",topics:["Elementor / Gutenberg","Responsive Homepage","No-Code Design"],yt:"https://youtube.com/results?search_query=elementor+wordpress+page+builder",rm:"https://roadmap.sh/frontend",gfg:"https://www.geeksforgeeks.org/elementor-wordpress/"},
-      {title:"Plugin Mastery",topics:["Contact Forms","Sliders & Galleries","Feature Enhancement"],yt:"https://youtube.com/results?search_query=wordpress+plugins+forms+sliders",rm:"https://roadmap.sh/frontend",gfg:"https://www.geeksforgeeks.org/wordpress-plugins/"},
-      {title:"SEO, Security & Speed",topics:["Yoast SEO","Google Analytics","Wordfence Security","Performance Optimization","Client-Style Project"],yt:"https://youtube.com/results?search_query=wordpress+seo+security+speed",rm:"https://roadmap.sh/frontend",gfg:"https://www.geeksforgeeks.org/wordpress-seo/"}
+      {title:"Setup & Hosting",topics:["Localhost Installation","Free Hosting Server","FTP & Domain Setup"],yt:"https://youtube.com/results?search_query=wordpress+hosting+setup",rm:"https://roadmap.sh/frontend",gfg:null},
+      {title:"Content Structure Design",topics:["Custom Post Types","SEO-Friendly Structure","UX Organization"],yt:"https://youtube.com/results?search_query=wordpress+content+structure+seo",rm:"https://roadmap.sh/frontend",gfg:null},
+      {title:"Theme Customization for Clients",topics:["Premium Themes","Child Themes","CSS Modifications","Branding"],yt:"https://youtube.com/results?search_query=wordpress+child+theme+css",rm:"https://roadmap.sh/frontend",gfg:null},
+      {title:"Page Builders & UI Design",topics:["Elementor / Gutenberg","Responsive Homepage","No-Code Design"],yt:"https://youtube.com/results?search_query=elementor+wordpress+page+builder",rm:"https://roadmap.sh/frontend",gfg:null},
+      {title:"Plugin Mastery",topics:["Contact Forms","Sliders & Galleries","Feature Enhancement"],yt:"https://youtube.com/results?search_query=wordpress+plugins+forms+sliders",rm:"https://roadmap.sh/frontend",gfg:null},
+      {title:"SEO, Security & Speed",topics:["Yoast SEO","Google Analytics","Wordfence Security","Performance Optimization","Client-Style Project"],yt:"https://youtube.com/results?search_query=wordpress+seo+security+speed",rm:"https://roadmap.sh/frontend",gfg:null}
     ]},
     {name:"Research Based Learning",icon:"🔬",code:"SEC-BCA RBL 404",modules:[
-      {title:"Fundamentals of Research",topics:["Importance of Research","Identifying Research Gaps","Qualitative vs Quantitative","Ethical Considerations"],yt:"https://youtube.com/results?search_query=research+methodology+fundamentals",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/research-methodology/"},
-      {title:"Literature Review & Data Analysis",topics:["Google Scholar, Semantic Scholar","5+ Research Papers","Exploratory Data Analysis"],yt:"https://youtube.com/results?search_query=literature+review+eda",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/literature-review/"},
-      {title:"AI Tools for Research",topics:["Afforai, Connected Papers","ChatGPT, Excel AI","Tableau, Python","Grammarly, QuillBot"],yt:"https://youtube.com/results?search_query=ai+tools+research+writing",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/ai-tools-for-research/"},
-      {title:"Design Methodology & Visualization",topics:["EDA on Datasets","Prototype Design","Matplotlib, Seaborn, Tableau"],yt:"https://youtube.com/results?search_query=research+methodology+data+visualization",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/data-visualization/"},
-      {title:"Drafting Research Paper",topics:["Paper Structure","Proofreading & Editing","Plagiarism Check","Zotero, Mendeley"],yt:"https://youtube.com/results?search_query=research+paper+writing+drafting",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/research-paper-writing/"},
-      {title:"Presentation & Publication",topics:["Conference Presentations","Canva, Beautiful.ai","Journal Selection","Peer-Review Process"],yt:"https://youtube.com/results?search_query=research+paper+publication+presentation",rm:"https://roadmap.sh/software-architect",gfg:"https://www.geeksforgeeks.org/research-paper-publication/"}
+      {title:"Fundamentals of Research",topics:["Importance of Research","Identifying Research Gaps","Qualitative vs Quantitative","Ethical Considerations"],yt:"https://youtube.com/results?search_query=research+methodology+fundamentals",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Literature Review & Data Analysis",topics:["Google Scholar, Semantic Scholar","5+ Research Papers","Exploratory Data Analysis"],yt:"https://youtube.com/results?search_query=literature+review+eda",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"AI Tools for Research",topics:["Afforai, Connected Papers","ChatGPT, Excel AI","Tableau, Python","Grammarly, QuillBot"],yt:"https://youtube.com/results?search_query=ai+tools+research+writing",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Design Methodology & Visualization",topics:["EDA on Datasets","Prototype Design","Matplotlib, Seaborn, Tableau"],yt:"https://youtube.com/results?search_query=research+methodology+data+visualization",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Drafting Research Paper",topics:["Paper Structure","Proofreading & Editing","Plagiarism Check","Zotero, Mendeley"],yt:"https://youtube.com/results?search_query=research+paper+writing+drafting",rm:"https://roadmap.sh/software-architect",gfg:null},
+      {title:"Presentation & Publication",topics:["Conference Presentations","Canva, Beautiful.ai","Journal Selection","Peer-Review Process"],yt:"https://youtube.com/results?search_query=research+paper+publication+presentation",rm:"https://roadmap.sh/software-architect",gfg:null}
     ]}
   ],
   5:[
@@ -904,6 +910,10 @@ function renderNotesList(){
       <h2>Notes — Semester <em>${currentSem}</em></h2>
       <p>${subjects.length} subjects · Click any subject to explore module-wise notes with YouTube lectures, GeeksforGeeks articles & roadmaps.</p>
     </div>
+    <div class="notice-banner">
+      <span class="notice-icon">ℹ️</span>
+      <div><b>Notice:</b> Some modules or subjects might not have any notes on GeeksforGeeks webpage. In such cases, the GFG button will appear disabled. You can still learn from the YouTube lectures and roadmap.sh links provided for every module.</div>
+    </div>
     <div class="sem-tabs">
       ${[1,2,3,4,5,6].map(s=>`<button class="sem-tab ${s===currentSem?'active':''}" onclick="selectSem(${s})">Sem ${s}</button>`).join('')}
     </div>
@@ -947,6 +957,13 @@ function getTypeClass(code){
 function selectSem(s){currentSem=s;currentSubject=null;renderNotesList()}
 function openSubject(idx){currentSubject=notesData[currentSem][idx];renderSubjectDetail()}
 
+function renderGfgButton(gfgLink){
+  if(gfgLink){
+    return `<a class="link-btn gfg" href="${gfgLink}" target="_blank" rel="noopener">📚 GeeksforGeeks</a>`;
+  }
+  return `<span class="link-btn na" title="GeeksforGeeks article not available for this module">📚 GFG Not Available</span>`;
+}
+
 function renderSubjectDetail(){
   const s = currentSubject;
   const view = document.getElementById('notesView');
@@ -957,6 +974,10 @@ function renderSubjectDetail(){
       <span class="code-badge">${s.code}</span>
       <h2>${s.name}</h2>
       <p>${s.modules.length} Modules · Complete coverage with video lectures, GeeksforGeeks articles & roadmaps</p>
+    </div>
+    <div class="notice-banner">
+      <span class="notice-icon">ℹ️</span>
+      <div><b>Notice:</b> Some modules or subjects might not have any notes on GeeksforGeeks webpage. Wherever the GFG button shows as "Not Available", you can still rely on the YouTube lectures and roadmap.sh links for that module.</div>
     </div>
     <div class="module-list">
       ${s.modules.map((m,i)=>`
@@ -972,7 +993,7 @@ function renderSubjectDetail(){
           </div>
           <div class="module-links">
             <a class="link-btn yt" href="${m.yt}" target="_blank" rel="noopener">▶️ YouTube</a>
-            <a class="link-btn gfg" href="${m.gfg}" target="_blank" rel="noopener">📚 GeeksforGeeks</a>
+            ${renderGfgButton(m.gfg)}
             <a class="link-btn rm" href="${m.rm}" target="_blank" rel="noopener">🗺️ Roadmap.sh</a>
           </div>
         </div>
