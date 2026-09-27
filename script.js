@@ -1,4 +1,4 @@
-                              /* ============ BCA SYLLABUS DATA ============ */
+/* ============ BCA SYLLABUS DATA ============ */
 const syllabusData = {
 1:[
 {n:"Universal Human Values-I",c:"VAC-BCA 101",t:"vac"},
@@ -675,9 +675,10 @@ btn.addEventListener('click',()=>goTo(btn.dataset.target));
 document.getElementById('menuBtn').addEventListener('click',()=>{
 document.getElementById('navLinks').classList.toggle('open');
 });
-/* ============ SEARCH ============ */
-document.getElementById('globalSearch').addEventListener('input',(e)=>{
-const q = e.target.value.toLowerCase().trim();
+/* ============ SEARCH WITH DEBOUNCE ============ */
+let searchTimeout = null;
+function performSearch(query){
+const q = query.toLowerCase().trim();
 if(!q){ goTo('home'); return; }
 goTo('notes');
 const matches = [];
@@ -689,7 +690,14 @@ if(hay.includes(q)) matches.push({sem:parseInt(sem),idx,subject:s});
 });
 const view = document.getElementById('notesView');
 if(matches.length===0){
-view.innerHTML = `<div class="section-head left"><span class="eyebrow">Search</span><h2>No results for "<em>${q}</em>"</h2><p>Try searching for subjects like Data Structures, DBMS, Java, Cloud Computing, etc.</p></div>`;
+view.innerHTML = `
+<div class="section-head left">
+<span class="eyebrow">Search</span>
+<h2>No results found for "<em>${q}</em>"</h2>
+<p>Try searching for subjects like Data Structures, DBMS, Java, Cloud Computing, etc.</p>
+</div>
+<button class="back-btn" onclick="document.getElementById('globalSearch').value='';goTo('home')">← Clear Search</button>
+`;
 return;
 }
 view.innerHTML = `
@@ -710,9 +718,24 @@ ${matches.map(m=>`
 `).join('')}
 </div>
 `;
+}
+
+
+// Search Changes every search on the webapge get controlled with this function
+const searchInput = document.getElementById('globalSearch');
+searchInput.addEventListener('input',(e)=>{
+if(searchTimeout) clearTimeout(searchTimeout);
+searchTimeout = setTimeout(()=>{
+performSearch(e.target.value);
+},500);
+});
+searchInput.addEventListener('keypress',(e)=>{
+if(e.key==='Enter'){
+if(searchTimeout) clearTimeout(searchTimeout);
+performSearch(e.target.value);
+}
 });
 /* ============ INIT ============ */
 renderSyllabus();
 renderRoadmaps();
 renderNotesList();
-
