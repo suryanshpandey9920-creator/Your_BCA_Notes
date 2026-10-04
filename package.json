@@ -1,0 +1,24 @@
+{
+  "name": "your_bca_notes",
+  "version": "1.0.0",
+  "description": "This Project is free for all students, anyone can access the notes for BCA Course.\r <br> <br> \r This is my proect link check it out : \r https://your-bca-notes.vercel.app/",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suryanshpandey9920-creator/Your_BCA_Notes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/suryanshpandey9920-creator/Your_BCA_Notes/issues"
+  },
+  "homepage": "https://github.com/suryanshpandey9920-creator/Your_BCA_Notes#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
